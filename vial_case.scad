@@ -17,7 +17,7 @@ clearance = 0.15;
 wall_thickness = 4.0;
 // Chose one thread from threadlib's THREAD_TABLE.scad, without the -ext/-int extension. (https://github.com/adrianschlatter/threadlib/blob/develop/THREAD_TABLE.scad)
 thread_type = "M28x2";
-thread_height = 6.0;
+thread_height = 7.0;
 thread_cut = 1.5;
 thread_fillet_r = 2;
 // Bottom/top start angle of rounded edges for easier 3D-printing. set this to zero for full rounded edges.
