@@ -89,7 +89,7 @@ difference() {
 module case_top() {
     difference() {
         rotate_extrude(convexity=4) shape_top();
-        rotate(8) case_cuts();
+        case_cuts();
         if (top_logo) {translate([0, 0, case_height - 0.2]) linear_extrude(0.4) scale([1.04, 1.04, 1]) Logo();}
     }
     // threads
