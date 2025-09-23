@@ -10,9 +10,9 @@ $fn=120;
 vial_diameter = 23.0;
 // overall height of the vial
 vial_height = 49.0;
-// The top of the thread will end at this height of the content/vial.
+// The top of the inner thread will end at this height of the content/vial. Makes the vial easy to grab and remove from the case.
 vial_neck_start = 34.0;
-// Make this value smaller than any rounded edges of the contents/vials
+// Make this radius smaller than any rounded edges of the contents/vials
 vial_rounding = 2.5;
 // Clearance applied around the contents/vial and in various places. Set this to your 3D-printers printing/manufacturing tolerance
 clearance = 0.15;
