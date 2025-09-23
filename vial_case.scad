@@ -6,7 +6,9 @@ use <Alice-OpenSCAD-Lib/logo.scad>
 
 $fn=120;
 
-vial_diameter = 22.6;
+// my vial is 22.6 mm in diameter, plus 2 x 0.2 for an optional label
+vial_diameter = 23.0;
+// overall height of the vial
 vial_height = 49.0;
 // The top of the thread will end at this height of the content/vial.
 vial_neck_start = 34.0;
