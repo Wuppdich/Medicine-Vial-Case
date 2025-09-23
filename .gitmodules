@@ -1,0 +1,6 @@
+[submodule "BOSL2"]
+	path = BOSL2
+	url = https://github.com/BelfrySCAD/BOSL2
+[submodule "threadlib"]
+	path = threadlib
+	url = https://github.com/adrianschlatter/threadlib
