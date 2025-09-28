@@ -4,9 +4,11 @@ include <threadlib/threadlib.scad>
 start_angle = 30;
 bottom_r = 30;
 // in mm/1°
-goemboec_rate = 0.1;
+goemboec_rate_small = 0.1;
+goemboec_rate_big = 0.2;
 goemboec_end_angle = 120;
 goemboec_step = 5;
+ribs = 3;
 
 function to3d(points) = [for (p=points) [each p, 0]];
 
@@ -50,15 +52,15 @@ function catmull_rom(points) = let(
 
 // goemboec muss umgeschrieben werden, sodass zusammenhängende punkte von verschiedenen
 // kurven auf einer Ebene gesampled werden
-small_arc = rot([90, 0, 0], p=to3d(goemboec(start_r=bottom_r, rate=0.1, start_angle=start_angle)));
-small_arc2 = rot([60, 0, 0], p=small_arc);
-big_arc = rot([60, 0, 0], p=to3d(goemboec(start_r=bottom_r, rate=0.2, start_angle=start_angle)));
-big_arc2 = yflip_copy(p=big_arc);
+small_arc = to3d(goemboec(start_r=bottom_r, rate=goemboec_rate_small, start_angle=start_angle));
+big_arc = xrot(360 / (ribs * 2), p=to3d(goemboec(start_r=bottom_r, rate=goemboec_rate_big, start_angle=start_angle)));
 
-stroke(small_arc2, joints="dot");
-stroke(big_arc2, joints="dot");
-stroke(small_arc, joints="dot");
-stroke(big_arc, joints="dot");
+// rot_copies(UP, n=5, delta=30*BACK) circle(10);
+
+// xrot_copies(n=ribs) hull_points(points=[each small_arc, each big_arc]);
+
+stroke(small_arc);
+stroke(big_arc);
 
 // smoothed_points = catmull_rom_path([small_arc2[0], big_arc2[0], small_arc[0], big_arc[0]]);
 // echo(smoothed_points);
