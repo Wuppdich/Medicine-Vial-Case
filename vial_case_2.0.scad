@@ -81,16 +81,20 @@ function polar_cubic_3d(points) = let(
     rot(from=UP, to=plane_n,
         p=to3d(polar_to_xy(flip_pairwise(cubic_points(
             sort(flip_pairwise(xy_to_polar(
-                rot(from=plane_n, to=UP, p=points))),0), $fs=$fa)))));
+                rot(from=plane_n, to=UP, p=points))),0), $fs=5)))));
 
 function zip(a, b) = [for (i=[0 : min(len(a), len(b)) - 1]) [a[i], b[i]]];
 
-stroke(small_arc);
-stroke(big_arc);
+// stroke(small_arc);
+// stroke(big_arc);
 
-%stroke(polar_cubic_3d([small_arc[6], big_arc[6]]));
+// %stroke(polar_cubic_3d([small_arc[6], big_arc[6]]));
+
+// rot_copies(UP, n=5, delta=30*BACK) circle(10);
+
+// xrot_copies(n=ribs) hull_points(points=[each small_arc, each big_arc]);
 
 
 points = [for (e=zip(small_arc, big_arc)) polar_cubic_3d([each e])];
-stroke(points);
+zrot_copies(n=ribs) mirror_copy(RIGHT) stroke([for (r=points) each r]);
 
